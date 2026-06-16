@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="KAORU portfolio for AI artwork, logos, stickers, and social visuals inspired by Lowrider / KUSTOM culture."
+    >
+    <title>KAORU | KUSTOM VISUALS</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" aria-label="Site header">
+      <a class="brand-mark" href="#hero" aria-label="KAORU home">KAORU</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#works">Works</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#commissions">Commissions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="language-switch" aria-label="Language switcher">
+        <button class="lang-button is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-button" type="button" data-lang="jp" aria-pressed="false">JP</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Monochrome KUSTOM Gallery / @kaoru1963</p>
+          <h1 id="hero-title">KUSTOM VISUALS BY KAORU</h1>
+          <p class="hero-lede">
+            AI artwork, logos, stickers, and social visuals inspired by Lowrider / KUSTOM culture.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="https://www.instagram.com/kaoru1963/" target="_blank" rel="noreferrer">
+              DM FOR COMMISSIONS
+            </a>
+            <a class="button button-secondary" href="#works">VIEW WORKS</a>
+          </div>
+        </div>
+
+        <div class="hero-video" aria-label="Hero visual loop">
+          <div class="motion-frame">
+            <video class="hero-loop" autoplay muted loop playsinline preload="metadata">
+              <source src="assets/hero-loop.mp4" type="video/mp4">
+            </video>
+            <div class="motion-layer layer-one"></div>
+            <div class="motion-layer layer-two"></div>
+            <div class="scanline"></div>
+            <div class="video-meta">
+              <span>VISUAL LOOP 01</span>
+              <span>AI + ANALOG STUDY</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="works" aria-labelledby="works-title">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Works</p>
+          <h2 id="works-title" data-i18n="worksTitle">Featured Works</h2>
+        </div>
+        <div class="featured-grid" id="featuredWorks" aria-label="Featured works"></div>
+      </section>
+
+      <section class="section section-compact" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <p class="eyebrow">Gallery</p>
+          <h2 id="gallery-title" data-i18n="galleryTitle">Gallery</h2>
+        </div>
+        <div class="gallery-grid" id="galleryGrid" aria-label="Gallery works"></div>
+      </section>
+
+      <section class="section commissions" id="commissions" aria-labelledby="commissions-title">
+        <div class="section-heading">
+          <p class="eyebrow">Commissions</p>
+          <h2 id="commissions-title" data-i18n="commissionsTitle">COMMISSIONS</h2>
+        </div>
+        <div class="commission-layout">
+          <article class="info-panel">
+            <h3 data-i18n="whatTitle">What I Make</h3>
+            <ul id="whatList"></ul>
+          </article>
+          <article class="info-panel">
+            <h3 data-i18n="howTitle">How It Works</h3>
+            <ol id="howList"></ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="section text-section" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title" data-i18n="aboutTitle">About KAORU</h2>
+        </div>
+        <p data-i18n="aboutBody">
+          KAORU creates AI-driven visuals rooted in Lowrider and KUSTOM culture, blending digital tools with analog sensibility. Based in Japan, open to commissions, collaborations, and visual projects worldwide.
+        </p>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title" data-i18n="contactTitle">Contact</h2>
+          <p data-i18n="contactBody">
+            Tell me what you want to make. A rough idea is enough. DM me on Instagram for commissions, collaborations, or exhibition inquiries.
+          </p>
+        </div>
+        <a class="button button-primary" href="https://www.instagram.com/kaoru1963/" target="_blank" rel="noreferrer" data-i18n="contactCta">
+          DM ON INSTAGRAM
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>KAORU</span>
+      <span>KUSTOM VISUALS / AI + ANALOG SENSIBILITY</span>
+      <a href="https://www.instagram.com/kaoru1963/" target="_blank" rel="noreferrer">@kaoru1963</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
