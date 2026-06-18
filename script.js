@@ -1,13 +1,13 @@
 const content = {
   en: {
-    worksTitle: "Featured Works",
+    worksTitle: "Selected Works",
     galleryTitle: "Gallery",
     commissionsTitle: "COMMISSIONS",
     whatTitle: "What I Make",
     howTitle: "How It Works",
     aboutTitle: "About KAORU",
     aboutBody:
-      "KAORU creates AI-driven visuals rooted in Lowrider and KUSTOM culture, blending digital tools with analog sensibility. Based in Japan, open to commissions, collaborations, and visual projects worldwide.",
+      "Lowrider / KUSTOM Kulture × AI & Analog Art\n\nI create visuals inspired by Lowrider and KUSTOM Kulture, blending AI expression with an analog sensibility. Based in Japan, I’m always open to commission work, collaborations, and exhibition inquiries.\n\nWhile I live the lifestyle—cruising in my two classic Chevys—at heart, I’m just a dedicated, down-to-earth Japanese guy. When I'm not creating or driving, you'll probably find me out in nature keeping up with my health-nut routine.\n\nLet’s connect and create something dope together!",
     contactTitle: "Contact",
     contactCta: "DM ON INSTAGRAM",
     contactBody:
@@ -22,15 +22,15 @@ const content = {
     howList: ["Listen / Direction", "AI Exploration", "Refine / Design", "Deliver"]
   },
   jp: {
-    worksTitle: "注目作品",
-    galleryTitle: "ギャラリー",
-    commissionsTitle: "制作依頼",
+    worksTitle: "Selected Works",
+    galleryTitle: "Gallery",
+    commissionsTitle: "COMMISSIONS",
     whatTitle: "制作できるもの",
     howTitle: "制作の流れ",
-    aboutTitle: "KAORUについて",
+    aboutTitle: "About KAORU",
     aboutBody:
-      "KAORUは、Lowrider / KUSTOM cultureを軸に、AI表現とアナログな感性を組み合わせたビジュアルを制作しています。日本を拠点に、制作依頼・コラボ・展示などの相談を受け付けています。",
-    contactTitle: "お問い合わせ",
+      "Lowrider / KUSTOM Kulture × AI & Analog Art\n\nローライダーやカスタムカルチャーからインスパイアされた世界観を、AIの技術とアナログな感性で表現しているクリエイターです。日本を拠点に、ビジュアル制作のご依頼やコラボ、展示の相談を随時受け付けています。\n\nライフワークとして2台のクラシックシボレーを所有する一方で、中身はかなり真面目な日本人。休日は自然に癒やされに行く、ちょっとした健康オタクでもあります。面白いコト、一緒にやりましょう！",
+    contactTitle: "Contact",
     contactCta: "Instagram DMで相談する",
     contactBody:
       "作りたいものがざっくりしていても大丈夫です。制作依頼、コラボ、展示のお話など、Instagram DMから気軽に相談してください。",
@@ -47,63 +47,169 @@ const content = {
 
 const featuredWorks = [
   {
-    title: "Chrome Boulevard",
+    title: "Pacific Sparks",
     category: "AI Visuals",
-    description: "Low-angle monochrome cruiser mood for social key art.",
-    tone: "linear-gradient(140deg, #050505 0%, #1f1f1f 38%, #f3f3f3 39%, #9d9d9d 44%, #080808 72%)"
+    description: "A cinematic Lowrider scene built around motion, chrome, sunset, and road sparks.",
+    image: "assets/works/featured-01-lowrider-sunset.jpg"
   },
   {
-    title: "Kustom Crest",
+    title: "Komahebi",
     category: "Logo & Graphics",
-    description: "Badge-style logo direction with chrome and shadow rhythm.",
-    tone: "radial-gradient(circle at 50% 42%, #eeeeee 0 8%, #707070 9% 17%, #111111 18% 55%, #020202 56%)"
+    description: "Japanese mythology, tattoo flash energy, and KUSTOM car culture in one emblem piece.",
+    image: "assets/works/featured-02-komahebi.png"
   },
   {
-    title: "Analog Night",
-    category: "Analog Works",
-    description: "Poster texture study blending hand-made grit with AI polish.",
-    tone: "repeating-linear-gradient(110deg, #0b0b0b 0 18px, #2b2b2b 18px 30px, #cfcfcf 30px 32px)"
-  },
-  {
-    title: "Street Flyer",
+    title: "Whittier Dream",
     category: "AI Visuals",
-    description: "Event visual concept made for quick mobile promotion.",
-    tone: "linear-gradient(35deg, #080808 0 28%, #dedede 29% 31%, #171717 32% 70%, #777777 71%)"
+    description: "A double-exposure street portrait with LA mood, gold light, tattoos, and a blue Impala.",
+    image: "assets/works/featured-03-whittier.png"
   },
   {
-    title: "Sticker Pack",
+    title: "Oldies But Goodies",
+    category: "AI Visuals",
+    description: "Fantasy poster atmosphere with smoke lettering, moonlight, and classic Lowrider presence.",
+    image: "assets/works/featured-04-oldies.png"
+  },
+  {
+    title: "Relentless C/C",
     category: "Logo & Graphics",
-    description: "Compact black-and-silver graphic set for print-ready stickers.",
-    tone: "radial-gradient(circle at 28% 30%, #e5e5e5 0 10%, transparent 11%), radial-gradient(circle at 70% 62%, #898989 0 12%, transparent 13%), #101010"
+    description: "A dense club-style panoramic graphic with ornate lettering, chrome, roses, and city landmarks.",
+    image: "assets/works/featured-05-relentless-cc.png"
   },
   {
-    title: "Silver Smoke",
-    category: "Analog Works",
-    description: "Soft grain, heavy contrast, and hand-finished poster energy.",
-    tone: "linear-gradient(180deg, #f6f6f6 0 5%, #292929 6% 30%, #070707 31% 100%)"
+    title: "Anderson Autoworks",
+    category: "AI Visuals",
+    description: "A stylized custom shop scene with neon signage, classic chrome, and character-driven storytelling.",
+    image: "assets/works/featured-06-anderson-autoworks.png"
   }
 ];
 
 const galleryWorks = [
-  ["Mirror Line", "AI Visuals"],
-  ["Club Mark", "Logo & Graphics"],
-  ["Tape Study", "Analog Works"],
-  ["Night Crop", "AI Visuals"],
-  ["Chrome Type", "Logo & Graphics"],
-  ["Show Flyer", "AI Visuals"],
-  ["Ink Plate", "Analog Works"],
-  ["Sticker 03", "Logo & Graphics"],
-  ["Street Grain", "Analog Works"],
-  ["Cover Draft", "AI Visuals"],
-  ["Badge 1963", "Logo & Graphics"],
-  ["Black Primer", "Analog Works"]
+  {
+    title: "Relentless Japan",
+    category: "Logo & Graphics",
+    image: "assets/works/gallery-01-relentless-japan.png"
+  },
+  {
+    title: "Keep On Cruisin",
+    category: "Social Visuals",
+    image: "assets/works/gallery-02-keep-cruisin.png"
+  },
+  {
+    title: "Street Study 01",
+    category: "AI Visuals",
+    image: "assets/works/gallery-03.png"
+  },
+  {
+    title: "Street Study 02",
+    category: "AI Visuals",
+    image: "assets/works/gallery-04.png"
+  },
+  {
+    title: "KUSTOM Frame",
+    category: "AI Visuals",
+    image: "assets/works/gallery-05.png"
+  },
+  {
+    title: "Poster Study",
+    category: "AI Visuals",
+    image: "assets/works/gallery-06.png"
+  },
+  {
+    title: "Night Culture",
+    category: "AI Visuals",
+    image: "assets/works/gallery-07.png"
+  },
+  {
+    title: "Cruise Draft",
+    category: "AI Visuals",
+    image: "assets/works/gallery-08.png"
+  },
+  {
+    title: "Pinup Blue",
+    category: "AI Visuals",
+    image: "assets/works/gallery-09-pinup-blue.png"
+  },
+  {
+    title: "Sacramento Mark",
+    category: "Logo & Graphics",
+    image: "assets/works/gallery-10-sacramento.png"
+  },
+  {
+    title: "Emenity",
+    category: "Logo & Graphics",
+    image: "assets/works/gallery-11-emenity.png"
+  },
+  {
+    title: "Low And Slow",
+    category: "AI Visuals",
+    image: "assets/works/gallery-12-low-and-slow.png"
+  },
+  {
+    title: "Relentless Santa",
+    category: "Logo & Graphics",
+    image: "assets/works/gallery-13-relentless-santa.png"
+  },
+  {
+    title: "Sky Is The Limit",
+    category: "Logo & Graphics",
+    image: "assets/works/gallery-14-sky-limit.png"
+  },
+  {
+    title: "Mi Familia Sticker",
+    category: "Logo & Graphics",
+    image: "assets/works/gallery-15-mi-familia-sticker.jpg"
+  },
+  {
+    title: "Kawasaki Paint Set",
+    category: "Paint Works",
+    image: "assets/works/analog-06-kawasaki.jpg"
+  },
+  {
+    title: "Metalflake Skate Deck",
+    category: "Paint Works",
+    image: "assets/works/analog-07-skate-deck.png"
+  },
+  {
+    title: "Green Panel Lettering",
+    category: "Paint Works",
+    image: "assets/works/analog-08-green-panel.jpg"
+  },
+  {
+    title: "Lowrider Bike Setup",
+    category: "Paint Works",
+    image: "assets/works/analog-09-bike-impala.jpg"
+  },
+  {
+    title: "Blue Fire Paint",
+    category: "Paint Works",
+    image: "assets/works/analog-10-blue-fire.jpg"
+  },
+  {
+    title: "Impala Paint Work",
+    category: "Paint Works",
+    image: "assets/works/analog-11-impala-paint.jpg"
+  },
+  {
+    title: "Painted Decks",
+    category: "Paint Works",
+    image: "assets/works/analog-12-painted-decks.png"
+  },
+  {
+    title: "Blue Custom Paint",
+    category: "Paint Works",
+    image: "assets/works/analog-13-blue-custom-paint.png"
+  }
 ];
 
-const gradients = [
-  "linear-gradient(130deg, #050505 0 55%, #e8e8e8 56% 58%, #151515 59%)",
-  "radial-gradient(circle at 35% 35%, #d7d7d7 0 10%, #333333 11% 24%, #080808 25%)",
-  "repeating-linear-gradient(45deg, #080808 0 12px, #242424 12px 18px, #a7a7a7 18px 20px)",
-  "linear-gradient(160deg, #171717, #060606 55%, #bababa 56% 60%, #101010 61%)"
+const heroVideos = [
+  "assets/hero-videos/hero-01.mp4",
+  "assets/hero-videos/hero-02.mp4",
+  "assets/hero-videos/hero-03.mp4",
+  "assets/hero-videos/hero-04.mp4",
+  "assets/hero-videos/hero-05.mp4",
+  "assets/hero-videos/hero-06.mp4",
+  "assets/hero-videos/hero-07.mp4"
 ];
 
 function renderFeaturedWorks() {
@@ -112,7 +218,9 @@ function renderFeaturedWorks() {
     .map(
       (work) => `
         <article class="work-card">
-          <div class="work-visual" style="--art-gradient: ${work.tone}"></div>
+          <button class="work-visual lightbox-trigger" type="button" data-lightbox-group="featured" data-lightbox-index="${featuredWorks.indexOf(work)}" aria-label="View ${work.title}">
+            <img src="${work.image}" alt="${work.title}">
+          </button>
           <div class="work-body">
             <span class="work-category">${work.category}</span>
             <h3>${work.title}</h3>
@@ -128,17 +236,118 @@ function renderGallery() {
   const root = document.querySelector("#galleryGrid");
   root.innerHTML = galleryWorks
     .map(
-      ([title, category], index) => `
+      (work) => `
         <article class="gallery-item">
-          <div class="gallery-visual" style="--art-gradient: ${gradients[index % gradients.length]}"></div>
+          <button class="gallery-visual lightbox-trigger" type="button" data-lightbox-group="gallery" data-lightbox-index="${galleryWorks.indexOf(work)}" aria-label="View ${work.title}">
+            <img src="${work.image}" alt="${work.title}">
+          </button>
           <div class="gallery-body">
-            <strong>${title}</strong>
-            <span>${category}</span>
+            <strong>${work.title}</strong>
+            <span>${work.category}</span>
           </div>
         </article>
       `
     )
     .join("");
+}
+
+function setupLightbox() {
+  const lightbox = document.querySelector("#artLightbox");
+  const image = lightbox.querySelector(".lightbox-image");
+  const title = lightbox.querySelector(".lightbox-caption strong");
+  const category = lightbox.querySelector(".lightbox-caption span");
+  const closeButton = lightbox.querySelector(".lightbox-close");
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest(".lightbox-trigger");
+    const closeTarget = event.target.closest("[data-lightbox-close]");
+
+    if (trigger) {
+      const group = trigger.dataset.lightboxGroup === "featured" ? featuredWorks : galleryWorks;
+      const work = group[Number(trigger.dataset.lightboxIndex)];
+      openLightbox(work);
+      return;
+    }
+
+    if (closeTarget) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+
+  function openLightbox(work) {
+    if (!work) {
+      return;
+    }
+
+    image.src = work.image;
+    image.alt = work.title;
+    title.textContent = work.title;
+    category.textContent = work.category;
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    closeButton.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+  }
+}
+
+function setupHeroVideoLoop() {
+  const players = Array.from(document.querySelectorAll(".hero-loop"));
+
+  if (players.length < 2 || heroVideos.length === 0) {
+    return;
+  }
+
+  let activeIndex = 0;
+  let videoIndex = 0;
+
+  players.forEach((player) => {
+    player.muted = true;
+    player.playsInline = true;
+    player.addEventListener("ended", playNextHeroVideo);
+    player.addEventListener("error", playNextHeroVideo);
+  });
+
+  players[0].src = heroVideos[0];
+  players[1].src = heroVideos[1 % heroVideos.length];
+  updateHeroVideoMotion(players[0], heroVideos[0]);
+  updateHeroVideoMotion(players[1], heroVideos[1 % heroVideos.length]);
+  players[0].classList.add("is-active");
+  players[0].play().catch(() => {});
+
+  function playNextHeroVideo() {
+    const current = players[activeIndex];
+    const nextIndex = activeIndex === 0 ? 1 : 0;
+    const next = players[nextIndex];
+
+    videoIndex = (videoIndex + 1) % heroVideos.length;
+    const nextVideo = heroVideos[videoIndex];
+
+    next.src = nextVideo;
+    updateHeroVideoMotion(next, nextVideo);
+    next.currentTime = 0;
+    next.load();
+    next.play().catch(() => {});
+    next.classList.add("is-active");
+    current.classList.remove("is-active");
+
+    activeIndex = nextIndex;
+  }
+
+  function updateHeroVideoMotion(player, videoPath) {
+    player.classList.toggle("is-diagonal-pan", videoPath.includes("hero-07"));
+  }
 }
 
 function setLanguage(lang) {
@@ -165,4 +374,6 @@ document.querySelectorAll(".lang-button").forEach((button) => {
 
 renderFeaturedWorks();
 renderGallery();
+setupLightbox();
+setupHeroVideoLoop();
 setLanguage("en");

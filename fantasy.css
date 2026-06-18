@@ -1,0 +1,199 @@
+:root {
+  --f-primary: #0250cc;
+  --f-secondary: #fdc800;
+  --f-ink: #f8f4e8;
+  --f-night: #080a12;
+  --f-deep: #101827;
+  --f-panel: rgba(16, 24, 39, 0.82);
+  --f-gold-soft: rgba(253, 200, 0, 0.28);
+  --f-blue-soft: rgba(2, 80, 204, 0.36);
+  --f-line: rgba(253, 200, 0, 0.32);
+}
+
+.theme-fantasy {
+  --black: var(--f-night);
+  --ink: #0d111c;
+  --panel: var(--f-panel);
+  --panel-2: rgba(9, 12, 22, 0.92);
+  --line: rgba(253, 200, 0, 0.22);
+  --line-bright: rgba(253, 200, 0, 0.62);
+  --text: var(--f-ink);
+  --muted: rgba(248, 244, 232, 0.66);
+  --soft: rgba(248, 244, 232, 0.84);
+  --silver: #fdc800;
+  --sans: Georgia, "Times New Roman", serif;
+  --mono: "Courier New", ui-monospace, monospace;
+  background:
+    radial-gradient(circle at 70% 8%, rgba(253, 200, 0, 0.18), transparent 20%),
+    radial-gradient(circle at 18% 22%, rgba(2, 80, 204, 0.26), transparent 28%),
+    linear-gradient(90deg, rgba(253, 200, 0, 0.08) 1px, transparent 1px) 0 0 / 52px 52px,
+    linear-gradient(180deg, #080a12 0%, #111827 52%, #05060a 100%);
+}
+
+.theme-fantasy .site-header {
+  background: rgba(8, 10, 18, 0.86);
+  border-bottom-color: var(--f-line);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.34);
+}
+
+.theme-fantasy .brand-mark,
+.theme-fantasy h1,
+.theme-fantasy h2,
+.theme-fantasy .work-card h3 {
+  color: var(--f-ink);
+  text-shadow:
+    0 0 18px rgba(253, 200, 0, 0.2),
+    0 3px 0 rgba(2, 80, 204, 0.46);
+}
+
+.theme-fantasy h1,
+.theme-fantasy h2 {
+  letter-spacing: 0;
+}
+
+.theme-fantasy h1 {
+  color: transparent;
+  background:
+    linear-gradient(180deg, #fff8da 0%, #f8f4e8 38%, #c6d7ef 56%, #fff4a8 74%, #f8f4e8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.28),
+    0 4px 0 rgba(2, 80, 204, 0.58),
+    0 0 26px rgba(253, 200, 0, 0.2);
+}
+
+.theme-fantasy .eyebrow {
+  color: var(--f-secondary);
+}
+
+.theme-fantasy .site-nav a {
+  color: rgba(248, 244, 232, 0.7);
+}
+
+.theme-fantasy .site-nav a:hover {
+  color: var(--f-ink);
+  background: rgba(253, 200, 0, 0.12);
+}
+
+.theme-fantasy .language-switch {
+  border-color: var(--f-line);
+  background: rgba(8, 10, 18, 0.64);
+}
+
+.theme-fantasy .lang-button {
+  color: rgba(248, 244, 232, 0.7);
+}
+
+.theme-fantasy .lang-button.is-active,
+.theme-fantasy .button-primary {
+  background: linear-gradient(135deg, var(--f-secondary), #fff0a3);
+  color: #111827;
+}
+
+.theme-fantasy .button {
+  border: 1px solid var(--f-line);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.theme-fantasy .button-secondary {
+  background: rgba(2, 80, 204, 0.16);
+  color: var(--f-ink);
+}
+
+.theme-fantasy .hero {
+  background:
+    radial-gradient(ellipse at 74% 44%, rgba(2, 80, 204, 0.22), transparent 38%),
+    linear-gradient(180deg, transparent 0 80%, rgba(253, 200, 0, 0.06) 100%);
+}
+
+.theme-fantasy .hero::before {
+  content: "";
+  position: absolute;
+  inset: 18% 4% auto auto;
+  width: min(38vw, 520px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(253, 200, 0, 0.16);
+  transform: rotate(45deg);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.theme-fantasy .hero-video {
+  opacity: 0.74;
+  mix-blend-mode: screen;
+}
+
+.theme-fantasy .motion-frame {
+  background:
+    radial-gradient(circle at 52% 44%, rgba(253, 200, 0, 0.28), transparent 16%),
+    radial-gradient(circle at 66% 58%, rgba(2, 80, 204, 0.42), transparent 24%),
+    #06070d;
+}
+
+.theme-fantasy .hero-loop {
+  filter: grayscale(0.15) saturate(1.06) contrast(1.26) brightness(0.72);
+}
+
+.theme-fantasy .hero-loop.is-active {
+  opacity: 0.7;
+}
+
+.theme-fantasy .motion-layer {
+  background:
+    linear-gradient(135deg, transparent 0 30%, rgba(253, 200, 0, 0.46) 31% 32%, transparent 33%),
+    repeating-linear-gradient(90deg, rgba(2, 80, 204, 0.16) 0 18px, rgba(253, 200, 0, 0.16) 18px 20px);
+  opacity: 0.32;
+}
+
+.theme-fantasy .motion-frame::before,
+.theme-fantasy .motion-frame::after {
+  opacity: 0.38;
+}
+
+.theme-fantasy .scanline {
+  background: repeating-linear-gradient(0deg, transparent 0 9px, rgba(253, 200, 0, 0.06) 10px);
+}
+
+.theme-fantasy .section {
+  border-top-color: rgba(253, 200, 0, 0.18);
+}
+
+.theme-fantasy .work-card,
+.theme-fantasy .gallery-item,
+.theme-fantasy .info-panel {
+  background:
+    linear-gradient(180deg, rgba(16, 24, 39, 0.88), rgba(6, 7, 13, 0.96));
+  border: 1px solid rgba(253, 200, 0, 0.24);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 20px 52px rgba(0, 0, 0, 0.26);
+}
+
+.theme-fantasy .work-visual,
+.theme-fantasy .gallery-visual {
+  filter: saturate(1.05) contrast(1.1);
+}
+
+.theme-fantasy .work-card p,
+.theme-fantasy .gallery-body span,
+.theme-fantasy .info-panel li,
+.theme-fantasy .site-footer {
+  color: rgba(248, 244, 232, 0.72);
+}
+
+.theme-fantasy a:focus-visible,
+.theme-fantasy button:focus-visible {
+  outline: 3px solid var(--f-secondary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 620px) {
+  .theme-fantasy .hero::before {
+    inset: 24% -18% auto auto;
+    width: 84vw;
+  }
+}

@@ -9,8 +9,9 @@
     >
     <title>KAORU | KUSTOM VISUALS</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fantasy.css">
   </head>
-  <body>
+  <body class="theme-fantasy">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" aria-label="Site header">
@@ -31,8 +32,7 @@
     <main id="main">
       <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Monochrome KUSTOM Gallery / @kaoru1963</p>
-          <h1 id="hero-title">KUSTOM VISUALS BY KAORU</h1>
+          <h1 id="hero-title">KUSTOM VISUALS BY&nbsp;&nbsp;KAORU</h1>
           <p class="hero-lede">
             AI artwork, logos, stickers, and social visuals inspired by Lowrider / KUSTOM culture.
           </p>
@@ -40,15 +40,13 @@
             <a class="button button-primary" href="https://www.instagram.com/kaoru1963/" target="_blank" rel="noreferrer">
               DM FOR COMMISSIONS
             </a>
-            <a class="button button-secondary" href="#works">VIEW WORKS</a>
           </div>
         </div>
 
         <div class="hero-video" aria-label="Hero visual loop">
           <div class="motion-frame">
-            <video class="hero-loop" autoplay muted loop playsinline preload="metadata">
-              <source src="assets/hero-loop.mp4" type="video/mp4">
-            </video>
+            <video class="hero-loop is-active" muted playsinline preload="auto" aria-hidden="true"></video>
+            <video class="hero-loop" muted playsinline preload="auto" aria-hidden="true"></video>
             <div class="motion-layer layer-one"></div>
             <div class="motion-layer layer-two"></div>
             <div class="scanline"></div>
@@ -62,15 +60,13 @@
 
       <section class="section" id="works" aria-labelledby="works-title">
         <div class="section-heading">
-          <p class="eyebrow">Featured Works</p>
-          <h2 id="works-title" data-i18n="worksTitle">Featured Works</h2>
+          <h2 id="works-title" data-i18n="worksTitle">Selected Works</h2>
         </div>
         <div class="featured-grid" id="featuredWorks" aria-label="Featured works"></div>
       </section>
 
       <section class="section section-compact" id="gallery" aria-labelledby="gallery-title">
         <div class="section-heading">
-          <p class="eyebrow">Gallery</p>
           <h2 id="gallery-title" data-i18n="galleryTitle">Gallery</h2>
         </div>
         <div class="gallery-grid" id="galleryGrid" aria-label="Gallery works"></div>
@@ -78,7 +74,6 @@
 
       <section class="section commissions" id="commissions" aria-labelledby="commissions-title">
         <div class="section-heading">
-          <p class="eyebrow">Commissions</p>
           <h2 id="commissions-title" data-i18n="commissionsTitle">COMMISSIONS</h2>
         </div>
         <div class="commission-layout">
@@ -95,7 +90,6 @@
 
       <section class="section text-section" id="about" aria-labelledby="about-title">
         <div class="section-heading">
-          <p class="eyebrow">About</p>
           <h2 id="about-title" data-i18n="aboutTitle">About KAORU</h2>
         </div>
         <p data-i18n="aboutBody">
@@ -105,7 +99,6 @@
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div>
-          <p class="eyebrow">Contact</p>
           <h2 id="contact-title" data-i18n="contactTitle">Contact</h2>
           <p data-i18n="contactBody">
             Tell me what you want to make. A rough idea is enough. DM me on Instagram for commissions, collaborations, or exhibition inquiries.
@@ -118,10 +111,21 @@
     </main>
 
     <footer class="site-footer">
-      <span>KAORU</span>
       <span>KUSTOM VISUALS / AI + ANALOG SENSIBILITY</span>
       <a href="https://www.instagram.com/kaoru1963/" target="_blank" rel="noreferrer">@kaoru1963</a>
     </footer>
+
+    <div class="lightbox" id="artLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Artwork preview">
+      <button class="lightbox-backdrop" type="button" data-lightbox-close aria-label="Close artwork preview"></button>
+      <figure class="lightbox-panel">
+        <button class="lightbox-close" type="button" data-lightbox-close>CLOSE</button>
+        <img class="lightbox-image" src="" alt="">
+        <figcaption class="lightbox-caption">
+          <strong></strong>
+          <span></span>
+        </figcaption>
+      </figure>
+    </div>
 
     <script src="script.js"></script>
   </body>

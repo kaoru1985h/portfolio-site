@@ -34,6 +34,10 @@ body {
   overflow-x: hidden;
 }
 
+body.lightbox-open {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -43,6 +47,10 @@ a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--silver);
   outline-offset: 4px;
+}
+
+button {
+  font: inherit;
 }
 
 .skip-link {
@@ -96,7 +104,7 @@ button:focus-visible {
   min-height: 44px;
   border-radius: var(--radius);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -105,7 +113,7 @@ button:focus-visible {
 .site-nav a {
   display: inline-flex;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 16px;
   color: var(--muted);
 }
 
@@ -202,6 +210,7 @@ h3 {
   color: var(--soft);
   font-size: clamp(17px, 2vw, 22px);
   line-height: 1.55;
+  white-space: pre-line;
 }
 
 .hero-actions,
@@ -210,6 +219,12 @@ h3 {
   flex-wrap: wrap;
   gap: var(--space);
   align-items: center;
+}
+
+.hero-actions .button {
+  min-height: 56px;
+  padding: 0 28px;
+  font-size: 13px;
 }
 
 .button {
@@ -273,9 +288,19 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   filter: grayscale(1) contrast(1.18) brightness(0.68);
-  opacity: 0.76;
+  opacity: 0;
   transform: scale(1.08);
+  transition: opacity 1200ms ease;
+}
+
+.hero-loop.is-active {
+  opacity: 0.76;
+}
+
+.hero-loop.is-active.is-diagonal-pan {
+  animation: hero-diagonal-pan 11s ease-in-out forwards;
 }
 
 .motion-frame::before,
@@ -342,7 +367,7 @@ h3 {
 
 .section-heading {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: end;
   gap: 24px;
   margin-bottom: 32px;
@@ -369,11 +394,37 @@ h3 {
 
 .work-visual,
 .gallery-visual {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
   min-height: 320px;
   background:
     var(--art-gradient),
     repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 14px),
     #111111;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.work-visual img,
+.gallery-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease, filter 700ms ease;
+}
+
+.work-card:hover .work-visual img,
+.gallery-item:hover .gallery-visual img {
+  transform: scale(1.04);
+}
+
+.work-visual {
+  aspect-ratio: 4 / 5;
 }
 
 .work-body,
@@ -415,6 +466,7 @@ h3 {
 
 .gallery-visual {
   min-height: 150px;
+  aspect-ratio: 1 / 1;
 }
 
 .gallery-body {
@@ -430,6 +482,97 @@ h3 {
 
 .gallery-body span {
   color: var(--muted);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 3vw, 40px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 360ms ease, visibility 360ms ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  background: rgba(3, 4, 8, 0.76);
+  cursor: zoom-out;
+  backdrop-filter: blur(16px);
+}
+
+.lightbox-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  max-width: min(1120px, 92vw);
+  max-height: 88vh;
+  margin: 0;
+  opacity: 0;
+  filter: blur(14px);
+  transform: translateY(18px) scale(0.96);
+  transition:
+    opacity 460ms ease,
+    filter 460ms ease,
+    transform 460ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox.is-open .lightbox-panel {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+.lightbox-image {
+  display: block;
+  max-width: min(1120px, 92vw);
+  max-height: 76vh;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.62);
+}
+
+.lightbox-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.lightbox-caption span {
+  color: var(--muted);
+}
+
+.lightbox-close {
+  justify-self: end;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(3, 3, 3, 0.72);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .commission-layout {
@@ -459,9 +602,68 @@ h3 {
   margin: 24px 0 0;
 }
 
+.text-section {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.text-section::before {
+  content: "";
+  position: absolute;
+  left: clamp(16px, 4vw, 48px);
+  top: 50%;
+  z-index: 0;
+  width: min(48vw, 660px);
+  aspect-ratio: 1402 / 1122;
+  background:
+    linear-gradient(90deg, rgba(3, 4, 8, 0.12), rgba(3, 4, 8, 0.56)),
+    url("assets/works/about-kaoru-visual.png") center / cover;
+  opacity: 0.58;
+  filter: saturate(0.96) contrast(1.06) brightness(0.86);
+  transform: translateY(-50%);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 46%, rgba(0, 0, 0, 0.62) 62%, transparent 82%);
+  mask-image: radial-gradient(ellipse at center, #000 0 46%, rgba(0, 0, 0, 0.62) 62%, transparent 82%);
+}
+
+.text-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.text-section p {
+  margin-left: auto;
+  text-align: left;
+}
+
 .contact {
-  justify-content: space-between;
-  align-items: end;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: end;
+  align-items: start;
+}
+
+.contact > div {
+  display: grid;
+  justify-items: end;
+  width: 100%;
+}
+
+.contact h2 {
+  text-align: right;
+}
+
+.contact p {
+  margin-left: auto;
+  text-align: left;
+}
+
+.contact .button {
+  margin-top: 8px;
+  min-height: 56px;
+  padding: 0 28px;
+  font-size: 13px;
 }
 
 .site-footer {
@@ -491,6 +693,17 @@ h3 {
   }
 }
 
+@keyframes hero-diagonal-pan {
+  from {
+    object-position: 0% 0%;
+    transform: scale(1.12);
+  }
+  to {
+    object-position: 100% 100%;
+    transform: scale(1.12);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -499,9 +712,13 @@ h3 {
   .motion-layer,
   .motion-frame::before,
   .motion-frame::after,
-  .button:hover {
+  .button:hover,
+  .lightbox,
+  .lightbox-panel {
     animation: none;
+    transition: none;
     transform: none;
+    filter: none;
   }
 }
 
@@ -535,6 +752,12 @@ h3 {
     grid-template-columns: 1fr 1fr;
   }
 
+  .text-section::before {
+    left: -18vw;
+    width: min(86vw, 560px);
+    opacity: 0.28;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -564,6 +787,34 @@ h3 {
     flex-direction: column;
   }
 
+  .contact {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .contact h2,
+  .contact p,
+  .contact .button {
+    grid-column: 1;
+  }
+
+  .contact > div {
+    justify-items: stretch;
+  }
+
+  .text-section p,
+  .contact p {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .text-section::before {
+    inset: 10% -30% auto auto;
+    width: 108vw;
+    opacity: 0.2;
+    transform: none;
+  }
+
   .button {
     width: 100%;
   }
@@ -588,5 +839,10 @@ h3 {
   .video-meta,
   .site-footer {
     flex-direction: column;
+  }
+
+  .lightbox-caption {
+    flex-direction: column;
+    gap: 4px;
   }
 }
