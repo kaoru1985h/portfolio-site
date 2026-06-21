@@ -17,7 +17,7 @@ const content = {
       "Logo & Sticker Graphics",
       "Social Media Visuals",
       "Flyer & Event Artwork",
-      "Analog-inspired Work"
+      "Paint Works"
     ],
     howList: ["Listen / Direction", "AI Exploration", "Refine / Design", "Deliver"]
   },
@@ -39,7 +39,7 @@ const content = {
       "ロゴ・ステッカーグラフィック",
       "SNSビジュアル",
       "フライヤー・イベントアート",
-      "アナログ感のある制作"
+      "カスタムペイント"
     ],
     howList: ["相談 / 方向性づくり", "AIでのビジュアル探索", "調整 / デザイン化", "納品"]
   }
@@ -347,6 +347,7 @@ function setupHeroVideoLoop() {
 
   function updateHeroVideoMotion(player, videoPath) {
     player.classList.toggle("is-diagonal-pan", videoPath.includes("hero-07"));
+    player.classList.toggle("is-full-frame", videoPath.includes("hero-06"));
   }
 }
 
