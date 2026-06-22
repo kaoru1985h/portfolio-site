@@ -212,43 +212,62 @@ const heroVideos = [
   "assets/hero-videos/hero-07.mp4"
 ];
 
-function renderFeaturedWorks() {
-  const root = document.querySelector("#featuredWorks");
-  root.innerHTML = featuredWorks
-    .map(
-      (work) => `
-        <article class="work-card">
-          <button class="work-visual lightbox-trigger" type="button" data-lightbox-group="featured" data-lightbox-index="${featuredWorks.indexOf(work)}" aria-label="View ${work.title}">
-            <img src="${work.image}" alt="${work.title}">
-          </button>
-          <div class="work-body">
-            <span class="work-category">${work.category}</span>
-            <h3>${work.title}</h3>
-            <p>${work.description}</p>
-          </div>
-        </article>
-      `
-    )
-    .join("");
+const workGroups = {
+  featured: featuredWorks,
+  gallery: galleryWorks
+};
+
+const workSections = [
+  {
+    selector: "#featuredWorks",
+    group: "featured",
+    renderBody: (work) => `
+      <div class="work-body">
+        <span class="work-category">${work.category}</span>
+        <h3>${work.title}</h3>
+        <p>${work.description}</p>
+      </div>
+    `,
+    itemClass: "work-card",
+    visualClass: "work-visual"
+  },
+  {
+    selector: "#galleryGrid",
+    group: "gallery",
+    renderBody: (work) => `
+      <div class="gallery-body">
+        <strong>${work.title}</strong>
+        <span>${work.category}</span>
+      </div>
+    `,
+    itemClass: "gallery-item",
+    visualClass: "gallery-visual"
+  }
+];
+
+function renderWorkSections() {
+  workSections.forEach((section) => {
+    const root = document.querySelector(section.selector);
+
+    if (!root) {
+      return;
+    }
+
+    root.innerHTML = workGroups[section.group]
+      .map((work, index) => renderWorkCard(work, index, section))
+      .join("");
+  });
 }
 
-function renderGallery() {
-  const root = document.querySelector("#galleryGrid");
-  root.innerHTML = galleryWorks
-    .map(
-      (work) => `
-        <article class="gallery-item">
-          <button class="gallery-visual lightbox-trigger" type="button" data-lightbox-group="gallery" data-lightbox-index="${galleryWorks.indexOf(work)}" aria-label="View ${work.title}">
-            <img src="${work.image}" alt="${work.title}">
-          </button>
-          <div class="gallery-body">
-            <strong>${work.title}</strong>
-            <span>${work.category}</span>
-          </div>
-        </article>
-      `
-    )
-    .join("");
+function renderWorkCard(work, index, section) {
+  return `
+    <article class="${section.itemClass}">
+      <button class="${section.visualClass} lightbox-trigger" type="button" data-lightbox-group="${section.group}" data-lightbox-index="${index}" aria-label="View ${work.title}">
+        <img src="${work.image}" alt="${work.title}">
+      </button>
+      ${section.renderBody(work)}
+    </article>
+  `;
 }
 
 function setupLightbox() {
@@ -263,7 +282,7 @@ function setupLightbox() {
     const closeTarget = event.target.closest("[data-lightbox-close]");
 
     if (trigger) {
-      const group = trigger.dataset.lightboxGroup === "featured" ? featuredWorks : galleryWorks;
+      const group = workGroups[trigger.dataset.lightboxGroup] || [];
       const work = group[Number(trigger.dataset.lightboxIndex)];
       openLightbox(work);
       return;
@@ -352,29 +371,46 @@ function setupHeroVideoLoop() {
 }
 
 function setLanguage(lang) {
-  const copy = content[lang];
-  document.documentElement.lang = lang === "jp" ? "ja" : "en";
+  const selectedLang = content[lang] ? lang : "en";
+  const copy = content[selectedLang];
+  document.documentElement.lang = selectedLang === "jp" ? "ja" : "en";
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     element.textContent = copy[element.dataset.i18n];
   });
 
-  document.querySelector("#whatList").innerHTML = copy.whatList.map((item) => `<li>${item}</li>`).join("");
-  document.querySelector("#howList").innerHTML = copy.howList.map((item) => `<li>${item}</li>`).join("");
+  setListContent("#whatList", copy.whatList);
+  setListContent("#howList", copy.howList);
 
   document.querySelectorAll(".lang-button").forEach((button) => {
-    const isActive = button.dataset.lang === lang;
+    const isActive = button.dataset.lang === selectedLang;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
 }
 
-document.querySelectorAll(".lang-button").forEach((button) => {
-  button.addEventListener("click", () => setLanguage(button.dataset.lang));
-});
+function setListContent(selector, items) {
+  const root = document.querySelector(selector);
 
-renderFeaturedWorks();
-renderGallery();
-setupLightbox();
-setupHeroVideoLoop();
-setLanguage("en");
+  if (!root) {
+    return;
+  }
+
+  root.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function setupLanguageSwitcher() {
+  document.querySelectorAll(".lang-button").forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.lang));
+  });
+}
+
+function init() {
+  renderWorkSections();
+  setupLightbox();
+  setupHeroVideoLoop();
+  setupLanguageSwitcher();
+  setLanguage("en");
+}
+
+init();
