@@ -217,6 +217,10 @@ const workGroups = {
   gallery: galleryWorks
 };
 
+const mobileFeaturedLimit = 4;
+const mobileQuery = window.matchMedia("(max-width: 620px)");
+let activeWorkGroups = { ...workGroups };
+
 const workSections = [
   {
     selector: "#featuredWorks",
@@ -246,6 +250,13 @@ const workSections = [
 ];
 
 function renderWorkSections() {
+  const isMobile = mobileQuery.matches;
+
+  activeWorkGroups = {
+    featured: isMobile ? featuredWorks.slice(0, mobileFeaturedLimit) : featuredWorks,
+    gallery: isMobile ? featuredWorks.slice(mobileFeaturedLimit).concat(galleryWorks) : galleryWorks
+  };
+
   workSections.forEach((section) => {
     const root = document.querySelector(section.selector);
 
@@ -253,7 +264,7 @@ function renderWorkSections() {
       return;
     }
 
-    root.innerHTML = workGroups[section.group]
+    root.innerHTML = activeWorkGroups[section.group]
       .map((work, index) => renderWorkCard(work, index, section))
       .join("");
   });
@@ -282,7 +293,7 @@ function setupLightbox() {
     const closeTarget = event.target.closest("[data-lightbox-close]");
 
     if (trigger) {
-      const group = workGroups[trigger.dataset.lightboxGroup] || [];
+      const group = activeWorkGroups[trigger.dataset.lightboxGroup] || [];
       const work = group[Number(trigger.dataset.lightboxIndex)];
       openLightbox(work);
       return;
@@ -405,8 +416,20 @@ function setupLanguageSwitcher() {
   });
 }
 
+function setupResponsiveWorkSections() {
+  const rerender = () => renderWorkSections();
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", rerender);
+    return;
+  }
+
+  mobileQuery.addListener(rerender);
+}
+
 function init() {
   renderWorkSections();
+  setupResponsiveWorkSections();
   setupLightbox();
   setupHeroVideoLoop();
   setupLanguageSwitcher();
