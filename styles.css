@@ -314,12 +314,6 @@ h3 {
   opacity: 0.76;
 }
 
-.hero-loop.is-full-frame {
-  object-fit: contain;
-  object-position: center;
-  transform: scale(1);
-}
-
 .hero-loop.is-active.is-diagonal-pan {
   animation: hero-diagonal-pan 11s ease-in-out forwards;
 }
