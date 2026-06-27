@@ -55,7 +55,7 @@ const featuredWorks = [
   {
     title: "Komahebi",
     category: "Logo & Graphics",
-    description: "Japanese mythology, tattoo flash energy, and KUSTOM car culture in one emblem piece.",
+    description: "Japanese mythology, tattoo flash and KUSTOM car culture in one art piece.",
     image: "assets/works/featured-02-komahebi.png"
   },
   {
@@ -67,19 +67,19 @@ const featuredWorks = [
   {
     title: "Oldies But Goodies",
     category: "AI Visuals",
-    description: "Fantasy poster atmosphere with smoke lettering, moonlight, and classic Lowrider presence.",
+    description: "Fantasy poster atmosphere with smoke lettering, moonlight, and Lowrider.",
     image: "assets/works/featured-04-oldies.png"
   },
   {
     title: "Relentless C/C",
     category: "Logo & Graphics",
-    description: "A dense club-style panoramic graphic with ornate lettering, chrome, roses, and city landmarks.",
+    description: "A panoramic artwork telling the story behind the owner’s Impala, life, and identity.",
     image: "assets/works/featured-05-relentless-cc.png"
   },
   {
     title: "Anderson Autoworks",
     category: "AI Visuals",
-    description: "A stylized custom shop scene with neon signage, classic chrome, and character-driven storytelling.",
+    description: "A stylized custom shop scene featuring the client’s neon-lit garage, a 1957 Chevrolet, and character-driven storytelling.",
     image: "assets/works/featured-06-anderson-autoworks.png"
   }
 ];
@@ -204,11 +204,9 @@ const galleryWorks = [
 
 const heroVideos = [
   "assets/hero-videos/hero-01.mp4",
-  "assets/hero-videos/hero-02.mp4",
   "assets/hero-videos/hero-03.mp4",
   "assets/hero-videos/hero-04.mp4",
   "assets/hero-videos/hero-05.mp4",
-  "assets/hero-videos/hero-06.mp4",
   "assets/hero-videos/hero-07.mp4"
 ];
 
@@ -250,12 +248,7 @@ const workSections = [
 ];
 
 function renderWorkSections() {
-  const isMobile = mobileQuery.matches;
-
-  activeWorkGroups = {
-    featured: isMobile ? featuredWorks.slice(0, mobileFeaturedLimit) : featuredWorks,
-    gallery: isMobile ? featuredWorks.slice(mobileFeaturedLimit).concat(galleryWorks) : galleryWorks
-  };
+  activeWorkGroups = getActiveWorkGroups();
 
   workSections.forEach((section) => {
     const root = document.querySelector(section.selector);
@@ -268,6 +261,17 @@ function renderWorkSections() {
       .map((work, index) => renderWorkCard(work, index, section))
       .join("");
   });
+}
+
+function getActiveWorkGroups() {
+  if (!mobileQuery.matches) {
+    return workGroups;
+  }
+
+  return {
+    featured: featuredWorks.slice(0, mobileFeaturedLimit),
+    gallery: featuredWorks.slice(mobileFeaturedLimit).concat(galleryWorks)
+  };
 }
 
 function renderWorkCard(work, index, section) {
@@ -349,10 +353,8 @@ function setupHeroVideoLoop() {
     player.addEventListener("error", playNextHeroVideo);
   });
 
-  players[0].src = heroVideos[0];
-  players[1].src = heroVideos[1 % heroVideos.length];
-  updateHeroVideoMotion(players[0], heroVideos[0]);
-  updateHeroVideoMotion(players[1], heroVideos[1 % heroVideos.length]);
+  setHeroVideo(players[0], heroVideos[0]);
+  setHeroVideo(players[1], heroVideos[1 % heroVideos.length]);
   players[0].classList.add("is-active");
   players[0].play().catch(() => {});
 
@@ -364,8 +366,7 @@ function setupHeroVideoLoop() {
     videoIndex = (videoIndex + 1) % heroVideos.length;
     const nextVideo = heroVideos[videoIndex];
 
-    next.src = nextVideo;
-    updateHeroVideoMotion(next, nextVideo);
+    setHeroVideo(next, nextVideo);
     next.currentTime = 0;
     next.load();
     next.play().catch(() => {});
@@ -375,9 +376,13 @@ function setupHeroVideoLoop() {
     activeIndex = nextIndex;
   }
 
+  function setHeroVideo(player, videoPath) {
+    player.src = videoPath;
+    updateHeroVideoMotion(player, videoPath);
+  }
+
   function updateHeroVideoMotion(player, videoPath) {
     player.classList.toggle("is-diagonal-pan", videoPath.includes("hero-07"));
-    player.classList.toggle("is-full-frame", videoPath.includes("hero-06"));
   }
 }
 
