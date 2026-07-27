@@ -395,6 +395,7 @@ h3 {
 
 .motion-work-heading {
   justify-content: flex-end;
+  text-align: right;
 }
 
 .motion-work-stage {
