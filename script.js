@@ -1,8 +1,10 @@
 const content = {
   en: {
-    worksTitle: "Selected Works",
+    worksTitle: "Client Work",
     galleryTitle: "Gallery",
     commissionsTitle: "COMMISSIONS",
+    motionDescriptionFirst: "Original stories brought to life with AI-powered visual tools.",
+    motionDescriptionSecond: "Watch the full movie on YouTube.",
     whatTitle: "What I Make",
     howTitle: "How It Works",
     aboutTitle: "About KAORU",
@@ -22,9 +24,11 @@ const content = {
     howList: ["Listen / Direction", "AI Exploration", "Refine / Design", "Deliver"]
   },
   jp: {
-    worksTitle: "Selected Works",
+    worksTitle: "Client Work",
     galleryTitle: "Gallery",
     commissionsTitle: "COMMISSIONS",
+    motionDescriptionFirst: "AIを活用したビジュアルツールで、オリジナルの物語を映像化。",
+    motionDescriptionSecond: "フルムービーはYouTubeでご覧ください。",
     whatTitle: "制作できるもの",
     howTitle: "制作の流れ",
     aboutTitle: "About KAORU",
@@ -47,44 +51,70 @@ const content = {
 
 const featuredWorks = [
   {
-    title: "Pacific Sparks",
+    title: "Nicaragua Journey",
     category: "AI Visuals",
-    description: "A cinematic Lowrider scene built around motion, chrome, sunset, and road sparks.",
-    image: "assets/works/featured-01-lowrider-sunset.jpg"
+    description: "A comic-style piece portraying the owner's roots through Nicaragua, San Francisco's Mission District, and a classic Chevrolet.",
+    descriptionJp: "ニカラグア、サンフランシスコのミッション地区、そしてクラシックシボレー。オーナー様のルーツをコミック風に。",
+    image: "assets/works/featured-07-nicaragua-journey.jpg"
   },
   {
-    title: "Komahebi",
+    title: "La Confluencia",
+    category: "AI Visuals",
+    description: "A monochrome roots artwork bringing together Nicaragua, San Francisco's Mission District, and a classic Chevrolet.",
+    descriptionJp: "ニカラグア、サンフランシスコのミッション地区、そしてクラシックシボレーをひとつに描いた、モノクロームのルーツアート。",
+    image: "assets/works/featured-08-la-confluencia.jpg"
+  },
+  {
+    title: "California Legacy",
+    category: "AI Visuals",
+    description: "A client story told through Sacramento landmarks, California symbols, and a 1964 Chevrolet Impala.",
+    descriptionJp: "サクラメントの名所、カリフォルニアの象徴、1964年式シボレー・インパラで描く、クライアント様の物語。",
+    image: "assets/works/featured-09-california-legacy.jpg"
+  },
+  {
+    title: "LODI 64",
     category: "Logo & Graphics",
-    description: "Japanese mythology, tattoo flash and KUSTOM car culture in one art piece.",
-    image: "assets/works/featured-02-komahebi.png"
-  },
-  {
-    title: "Whittier Dream",
-    category: "AI Visuals",
-    description: "A double-exposure street portrait with LA mood, gold light, tattoos, and a blue Impala.",
-    image: "assets/works/featured-03-whittier.png"
-  },
-  {
-    title: "Oldies But Goodies",
-    category: "AI Visuals",
-    description: "Fantasy poster atmosphere with smoke lettering, moonlight, and Lowrider.",
-    image: "assets/works/featured-04-oldies.png"
-  },
-  {
-    title: "Relentless C/C",
-    category: "Logo & Graphics",
-    description: "A panoramic artwork telling the story behind the owner’s Impala, life, and identity.",
+    description: "A panoramic artwork portraying the owner's story through his Impala, life, and identity.",
+    descriptionJp: "オーナーのインパラ、人生、アイデンティティにまつわる物語を描いたパノラマ作品。",
     image: "assets/works/featured-05-relentless-cc.png"
   },
   {
     title: "Anderson Autoworks",
     category: "AI Visuals",
-    description: "A stylized custom shop scene featuring the client’s neon-lit garage, a 1957 Chevrolet, and character-driven storytelling.",
+    description: "A custom graphic featuring the client's shop concept, a 1957 Chevrolet, and a female character.",
+    descriptionJp: "クライアント様のショップイメージと1957年のシボレー、女性のキャラクターを使って描いたカスタムグラフィック。",
     image: "assets/works/featured-06-anderson-autoworks.png"
+  },
+  {
+    title: "Emenity",
+    category: "Logo & Graphics",
+    description: "A special poster capturing memories of the owner's car and car shows.",
+    descriptionJp: "愛車とカーショーの記憶を、ポスターという特別な一枚へ。",
+    image: "assets/works/gallery-11-emenity.png"
   }
 ];
 
 const galleryWorks = [
+  {
+    title: "Pacific Sparks",
+    category: "AI Visuals",
+    image: "assets/works/featured-01-lowrider-sunset.jpg"
+  },
+  {
+    title: "Komahebi",
+    category: "Logo & Graphics",
+    image: "assets/works/featured-02-komahebi.png"
+  },
+  {
+    title: "Whittier Dream",
+    category: "AI Visuals",
+    image: "assets/works/featured-03-whittier.png"
+  },
+  {
+    title: "Oldies But Goodies",
+    category: "AI Visuals",
+    image: "assets/works/featured-04-oldies.png"
+  },
   {
     title: "Relentless Japan",
     category: "Logo & Graphics",
@@ -106,11 +136,6 @@ const galleryWorks = [
     image: "assets/works/gallery-04.png"
   },
   {
-    title: "KUSTOM Frame",
-    category: "AI Visuals",
-    image: "assets/works/gallery-05.png"
-  },
-  {
     title: "Poster Study",
     category: "AI Visuals",
     image: "assets/works/gallery-06.png"
@@ -121,11 +146,6 @@ const galleryWorks = [
     image: "assets/works/gallery-07.png"
   },
   {
-    title: "Cruise Draft",
-    category: "AI Visuals",
-    image: "assets/works/gallery-08.png"
-  },
-  {
     title: "Pinup Blue",
     category: "AI Visuals",
     image: "assets/works/gallery-09-pinup-blue.png"
@@ -134,21 +154,6 @@ const galleryWorks = [
     title: "Sacramento Mark",
     category: "Logo & Graphics",
     image: "assets/works/gallery-10-sacramento.png"
-  },
-  {
-    title: "Emenity",
-    category: "Logo & Graphics",
-    image: "assets/works/gallery-11-emenity.png"
-  },
-  {
-    title: "Low And Slow",
-    category: "AI Visuals",
-    image: "assets/works/gallery-12-low-and-slow.png"
-  },
-  {
-    title: "Relentless Santa",
-    category: "Logo & Graphics",
-    image: "assets/works/gallery-13-relentless-santa.png"
   },
   {
     title: "Sky Is The Limit",
@@ -215,9 +220,16 @@ const workGroups = {
   gallery: galleryWorks
 };
 
-const mobileFeaturedLimit = 4;
+const mobileFeaturedLimit = featuredWorks.length;
 const mobileQuery = window.matchMedia("(max-width: 620px)");
+let selectedLanguage = "en";
 let activeWorkGroups = { ...workGroups };
+
+function getWorkDescription(work) {
+  return selectedLanguage === "jp" && work.descriptionJp
+    ? work.descriptionJp
+    : work.description;
+}
 
 const workSections = [
   {
@@ -227,7 +239,7 @@ const workSections = [
       <div class="work-body">
         <span class="work-category">${work.category}</span>
         <h3>${work.title}</h3>
-        <p>${work.description}</p>
+        <p>${getWorkDescription(work)}</p>
       </div>
     `,
     itemClass: "work-card",
@@ -437,6 +449,7 @@ function setupMotionWorkPreview() {
 function setLanguage(lang) {
   const selectedLang = content[lang] ? lang : "en";
   const copy = content[selectedLang];
+  selectedLanguage = selectedLang;
   document.documentElement.lang = selectedLang === "jp" ? "ja" : "en";
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -445,6 +458,7 @@ function setLanguage(lang) {
 
   setListContent("#whatList", copy.whatList);
   setListContent("#howList", copy.howList);
+  renderWorkSections();
 
   document.querySelectorAll(".lang-button").forEach((button) => {
     const isActive = button.dataset.lang === selectedLang;

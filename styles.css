@@ -447,6 +447,10 @@ h3 {
   line-height: 1.5;
 }
 
+.motion-work-description span {
+  display: block;
+}
+
 .motion-work-link {
   flex: 0 0 auto;
   min-height: 52px;
