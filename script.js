@@ -386,6 +386,54 @@ function setupHeroVideoLoop() {
   }
 }
 
+function setupMotionWorkPreview() {
+  const preview = document.querySelector(".motion-work-video");
+
+  if (!preview) {
+    return;
+  }
+
+  preview.muted = true;
+  preview.playsInline = true;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (reducedMotion.matches) {
+    preview.pause();
+    preview.removeAttribute("autoplay");
+    return;
+  }
+
+  const updatePlayback = (isVisible) => {
+    if (isVisible && !document.hidden) {
+      preview.play().catch(() => {});
+      return;
+    }
+
+    preview.pause();
+  };
+
+  if ("IntersectionObserver" in window) {
+    let isPreviewVisible = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isPreviewVisible = entry.isIntersecting;
+        updatePlayback(isPreviewVisible);
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(preview);
+
+    document.addEventListener("visibilitychange", () => {
+      updatePlayback(isPreviewVisible);
+    });
+    return;
+  }
+
+  preview.play().catch(() => {});
+}
+
 function setLanguage(lang) {
   const selectedLang = content[lang] ? lang : "en";
   const copy = content[selectedLang];
@@ -437,6 +485,7 @@ function init() {
   setupResponsiveWorkSections();
   setupLightbox();
   setupHeroVideoLoop();
+  setupMotionWorkPreview();
   setupLanguageSwitcher();
   setLanguage("en");
 }

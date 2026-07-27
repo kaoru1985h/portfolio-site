@@ -372,6 +372,7 @@ h3 {
 }
 
 .section {
+  scroll-margin-top: 72px;
   padding: clamp(56px, 9vw, 104px) clamp(16px, 4vw, 48px);
   border-top: 1px solid var(--line);
 }
@@ -386,6 +387,69 @@ h3 {
   align-items: end;
   gap: 24px;
   margin-bottom: 32px;
+}
+
+.motion-work {
+  padding-bottom: clamp(64px, 10vw, 120px);
+}
+
+.motion-work-heading {
+  justify-content: flex-end;
+}
+
+.motion-work-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: var(--ink);
+}
+
+.motion-work-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.motion-work-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--ink);
+}
+
+.motion-work-meta {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 20px;
+  text-align: right;
+}
+
+.motion-work-meta h3 {
+  margin: 6px 0 0;
+  font-family: var(--sans);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 0.95;
+}
+
+.motion-work-description {
+  max-width: 580px;
+  margin: 12px 0 0 auto;
+  color: var(--soft);
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.5;
+}
+
+.motion-work-link {
+  flex: 0 0 auto;
+  min-height: 52px;
+  padding-inline: 24px;
 }
 
 .featured-grid {
@@ -747,6 +811,7 @@ h3 {
   .motion-layer,
   .motion-frame::before,
   .motion-frame::after,
+  .motion-work-video,
   .button:hover,
   .lightbox,
   .lightbox-panel {
@@ -952,7 +1017,38 @@ h3 {
   }
 
   .section {
+    scroll-margin-top: 92px;
     padding: 44px 14px;
+  }
+
+  .motion-work {
+    padding-inline: 0;
+  }
+
+  .motion-work-heading,
+  .motion-work-meta {
+    margin-inline: 14px;
+  }
+
+  .motion-work-stage {
+    border-radius: 0;
+  }
+
+  .motion-work-meta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+  }
+
+  .motion-work-meta h3 {
+    font-size: 32px;
+  }
+
+  .motion-work-link {
+    width: 100%;
+    min-height: 50px;
+    font-size: 14px;
   }
 
   .featured-grid {
